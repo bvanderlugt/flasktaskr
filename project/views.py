@@ -1,9 +1,8 @@
 # project/views.py
 
 
-from functools import wraps
-
 from forms import AddTaskForm
+
 from functools import wraps
 from flask import Flask, flash, redirect, render_template, \
     request, session, url_for
@@ -16,6 +15,8 @@ app = Flask(__name__)
 app.config.from_object('_config')
 db = SQLAlchemy(app)
 
+# note this import has to come after the config part above in order to
+# initialize db then create Task
 from models import Task
 
 # helper functions
